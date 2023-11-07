@@ -11,11 +11,10 @@ interface DayForecast {
   }
   
   interface WeekForecastProps {
-    data: {
-      forecast: {
-        forecastday: DayForecast[];
-      };
-    };
+    data:{forecast?
+      : {forecastday
+        : DayForecast[];};
+      }
   }
   
   const WeekForecast = ({ data }: WeekForecastProps) => {
@@ -23,7 +22,7 @@ interface DayForecast {
     return (
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 w-full">
         <h2 className="text-2xl text-white italic font-semibold text-center mt-10">Weekly Forecast 🌤</h2>
-        {data.forecast.forecastday.map((day, index) => (
+        {data.forecast?.forecastday.map((day, index) => (
           <div
             key={index}
             className="bg-white/40 p-2 text-center rounded-lg flex flex-col items-center font-semibold gap-4"

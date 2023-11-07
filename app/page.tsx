@@ -9,7 +9,7 @@ import WeekForecast from "./component/WeekForecast";
 
 const Home = () => {
 
-  const [data,setData] = useState({});
+  const [data, setData] = useState({});
   const [location,setLocation] = useState("");
   const [error,setError] = useState("");
 
@@ -28,6 +28,7 @@ const Home = () => {
         setData(data)
         setLocation("")
         setError("")
+        console.log(data)
       }catch(error){
         setError("City not Found")
         setData({})
@@ -56,7 +57,7 @@ const Home = () => {
       <>
         <div className="flex md:flex-row flex-col p-12 items-center justify-between mt-[-4rem] gap-10">
           <Current data={data} />
-          <WeekForecast data={data} />
+          <WeekForecast data= {data} />
         </div>
         <div>
           <WeatherDetails data={data} />
@@ -64,6 +65,7 @@ const Home = () => {
       </>
     );
   }
+
 
   return (
     <div className="bg-cover bg-gradient-to-r from-blue-500 to-blue-300 h-fit">
